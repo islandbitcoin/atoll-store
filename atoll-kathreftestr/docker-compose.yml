@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: atoll-kathreftestr_web_1
+      APP_PORT: 3000
+
+  web:
+    image: ghcr.io/bobodread876/kathreftestr:0.1.1
+    restart: on-failure
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      # The URL the published Nostr event links to for HLS playback. Defaults to
+      # this host on the app's mapped port; for viewers outside your LAN, set it
+      # to a publicly reachable URL (reverse proxy / tunnel) for this app.
+      HLS_BASE: ${APP_HLS_BASE:-http://${DEVICE_HOSTNAME:-umbrel.local}:3000/live}
+      # Comma-separated relays to broadcast to (sane defaults if empty).
+      NOSTR_RELAYS: ""
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data

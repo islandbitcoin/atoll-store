@@ -1,0 +1,59 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: atoll-pactd_web_1
+      APP_PORT: 8787
+
+  # Bundled Nostr relay (strfry, multi-arch) — your bonds can live entirely on
+  # your own box. pactd defaults to it (PACT_RELAYS below). To use a different
+  # relay instead (public, or another Umbrel Nostr relay app), set it from the
+  # Pact UI's "Relays" card — that overrides this default and persists.
+  relay:
+    image: ghcr.io/bobodread876/pact-relay:latest
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/relay:/data
+    # Publish on the host so the bundled relay is reachable at
+    # ws://<umbrel-host>:7777 — usable by other agents on your network, and
+    # reverse-proxyable (as wss:// with TLS) to the public internet. pactd itself
+    # still reaches it internally as `relay:7777` (containers can't resolve
+    # .local). Open relay (no auth) — keep on a trusted LAN unless proxied.
+    ports:
+      - "7777:7777"
+
+  web:
+    image: ghcr.io/bobodread876/pactd:latest
+    restart: on-failure
+    depends_on:
+      - relay
+    environment:
+      PACT_HOST: 0.0.0.0
+      PACT_PORT: "8787"
+      # Bearer token for external/agent API access — deterministic per-install,
+      # derived from the app's Umbrel seed. Shown in the Pact UI's "Connect an
+      # agent" panel (behind Umbrel login).
+      PACT_TOKEN: ${APP_SEED}
+      # The host-mapped direct port (below), so the UI's "Connect an agent"
+      # command shows the right URL instead of the app_proxy login port.
+      PACT_PUBLIC_PORT: "3737"
+      # The host-mapped relay port, so the UI shows the shareable bundled-relay
+      # URL (ws://<host>:7777) that other agents / a reverse proxy can use.
+      PACT_RELAY_PUBLIC_PORT: "7777"
+      # Default to the bundled relay (your own on-box copy) PLUS the public
+      # defaults, so a fresh install is both sovereign and interoperable — bonds
+      # with off-box agents resolve out of the box. Narrow this to just the
+      # bundled relay (fully local) or change it entirely from the Pact UI's
+      # "Relays" card; the UI setting persists and takes precedence.
+      PACT_RELAYS: ws://relay:7777,wss://relay.islandbitcoin.com,wss://relay.damus.io,wss://nos.lol
+      # Optional: paid-verification price.
+      # PACT_VERIFY_PRICE_SATS: "0"
+      # Connect your Lightning wallet from the Pact UI (paste an Alby Hub NWC URI) —
+      # no env editing needed.
+    # Direct host port for external/agent access (token-required). Keep on a
+    # trusted LAN. The web UI is also at the Umbrel app URL (behind Umbrel login).
+    ports:
+      - "3737:8787"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data

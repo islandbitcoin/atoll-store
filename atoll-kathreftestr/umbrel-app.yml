@@ -1,0 +1,40 @@
+manifestVersion: 1
+id: atoll-kathreftestr
+name: Kathreftestr
+tagline: Mirror a livestream to Nostr (NIP-53), with Lightning zaps
+icon: https://raw.githubusercontent.com/bobodread876/atoll-store/main/atoll-kathreftestr/icon.svg
+category: media
+version: "0.1.1"
+port: 3000
+description: >-
+  Kathreftestr re-broadcasts a livestream onto Nostr. Paste a YouTube or Twitch
+  URL and it pulls the feed with yt-dlp, transcodes through ffmpeg into a bundled
+  MediaMTX server (RTMP → HLS), and publishes a NIP-53 live event any Nostr
+  client (zap.stream, Amethyst) can tune into.
+
+
+  Each stream gets its own Lightning address for zaps. Self-hosted by design:
+  your node, your keys, your relays — and home-hosting sidesteps the IP blocks
+  that break cloud streaming. Everything (app, MediaMTX, ffmpeg, yt-dlp) runs in
+  a single container.
+
+
+  Note: for viewers outside your network to play the stream, set HLS_BASE to a
+  publicly reachable URL for this app (a reverse proxy or tunnel). Kathreftis
+  (καθρέφτης) is Greek for "mirror."
+releaseNotes: >-
+  0.1.1 — proper attribution (the live event uses the real YouTube title and the
+  per-stream identity is named after the source channel), the stream's secret
+  key is masked with a reveal toggle, a fixed HLS proxy so players actually play
+  (not just resolve the event), and clearer public-playback guidance. Set
+  HLS_BASE to a public HTTPS URL (e.g. a cloudflared tunnel) for off-network
+  viewers.
+developer: bobodread876
+website: https://bobodread876.github.io/kathreftestr/
+dependencies: []
+repo: https://github.com/bobodread876/kathreftestr
+support: https://github.com/bobodread876/kathreftestr/issues
+gallery: []
+path: ""
+submitter: bobodread876
+submission: https://github.com/bobodread876/kathreftestr
