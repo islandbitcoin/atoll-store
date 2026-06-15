@@ -7,7 +7,7 @@ A single Umbrel community app store (`id: atoll`) hosting all of Island Bitcoin'
 1. Open your Umbrel → **App Store** → **⋯** → **Add community store**
 2. Paste this repo's URL:
    ```
-   https://github.com/bobodread876/atoll-store
+   https://github.com/islandbitcoin/atoll-store
    ```
 3. Install any app below from the Island Bitcoin store.
 
@@ -36,5 +36,5 @@ atoll-<app>/
    (`APP_HOST: atoll-<app>_web_1`), and `icon.svg`.
 2. Point the icon URL at `…/atoll-store/main/atoll-<app>/icon.svg`.
 
-This store is also tracked by the [`atoll`](https://github.com/bobodread876/atoll) parent repo
+This store is also tracked by the [`atoll`](https://github.com/islandbitcoin/atoll) parent repo
 alongside the Start9 packages and registry.

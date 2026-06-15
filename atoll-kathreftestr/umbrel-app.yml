@@ -2,7 +2,7 @@ manifestVersion: 1
 id: atoll-kathreftestr
 name: Kathreftestr
 tagline: Mirror a livestream to Nostr (NIP-53), with Lightning zaps
-icon: https://raw.githubusercontent.com/bobodread876/atoll-store/main/atoll-kathreftestr/icon.svg
+icon: https://raw.githubusercontent.com/islandbitcoin/atoll-store/main/atoll-kathreftestr/icon.svg
 category: media
 version: "0.1.1"
 port: 3000

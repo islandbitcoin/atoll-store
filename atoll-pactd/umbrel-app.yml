@@ -2,7 +2,7 @@ manifestVersion: 1
 id: atoll-pactd
 name: Pact
 tagline: Sovereign agent relationship bonds over Nostr & Lightning
-icon: https://raw.githubusercontent.com/bobodread876/atoll-store/main/atoll-pactd/icon.svg
+icon: https://raw.githubusercontent.com/islandbitcoin/atoll-store/main/atoll-pactd/icon.svg
 category: networking
 version: "0.18.0"
 port: 8787
