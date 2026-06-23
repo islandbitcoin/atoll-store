@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: atoll-beszel
+name: Beszel
+tagline: Lightweight server monitoring with alerts and historical metrics
+icon: https://raw.githubusercontent.com/islandbitcoin/atoll-store/main/atoll-beszel/icon.svg
+category: networking
+version: "0.18.7"
+port: 8090
+description: >-
+  Beszel is a lightweight monitoring hub for tracking systems, containers,
+  resource usage, uptime, and alerts from a clean web dashboard.
+
+
+  Add Beszel Agents on the machines you want to monitor, then connect them to
+  this hub from the web UI. Beszel stores its configuration, users, metrics, and
+  alert settings locally in your Umbrel app data directory.
+
+
+  It is built to be simple to operate: small footprint, historical charts,
+  multi-user accounts, OAuth/OIDC support, API access, and configurable alerts
+  for CPU, memory, disk, bandwidth, temperature, load average, and system
+  status.
+releaseNotes: >-
+  Initial Atoll Umbrel release for Beszel 0.18.7. Runs the official Beszel hub
+  image with persistent local storage at /beszel_data and Umbrel app_proxy
+  access.
+developer: henrygd
+website: https://beszel.dev
+dependencies: []
+repo: https://github.com/henrygd/beszel
+support: https://github.com/henrygd/beszel/issues
+gallery: []
+path: ""
+submitter: bobodread876
+submission: https://github.com/islandbitcoin/atoll-store
