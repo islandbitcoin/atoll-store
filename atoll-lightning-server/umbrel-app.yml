@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: atoll-lightning-server
+name: Lightning Server
+tagline: Self-hosted Lightning Address server with Nostr zap receipts and notifications
+icon: https://raw.githubusercontent.com/islandbitcoin/atoll-store/main/atoll-lightning-server/icon.svg
+category: bitcoin
+version: "0.1.0"
+port: 3000
+description: >-
+  Lightning Server enables you to receive Lightning Address payments at
+  you@yourdomain.com. It generates BOLT11 invoices via your LND node,
+  publishes Nostr zap receipts (NIP-57), and sends email and push
+  notifications for every payment received.
+
+
+  Features include multi-user Lightning Addresses, alias forwarding,
+  MongoDB-backed dynamic aliases, phoenixd webhook support, Nostr profile
+  resolution, and a web dashboard for configuration and status monitoring.
+
+
+  Required configuration: set DOMAIN, GRPC_HOST, INVOICE_MACAROON, and
+  notification credentials via environment variables after install.
+releaseNotes: >-
+  Initial Atoll Umbrel release. Lightning Server 0.1.0 with web dashboard,
+  health endpoint, and Dockerfile. Based on dplusplus1024/lightning-server
+  (Apache-2.0).
+developer: dplusplus1024
+website: https://github.com/dplusplus1024/lightning-server
+dependencies: []
+repo: https://github.com/dplusplus1024/lightning-server
+support: https://github.com/dplusplus1024/lightning-server/issues
+gallery: []
+path: ""
+submitter: bobodread876
+submission: https://github.com/islandbitcoin/atoll-store
