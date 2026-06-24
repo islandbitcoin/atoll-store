@@ -12,6 +12,7 @@ services:
     environment:
       NODE_ENV: production
       PORT: "3000"
+      CONFIG_FILE: /data/config.json
     volumes:
       - ${APP_DATA_DIR}/data:/data
     healthcheck:
