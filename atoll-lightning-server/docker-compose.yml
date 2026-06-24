@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   web:
-    image: ghcr.io/forge0x/lightning-server:0.1.0
+    image: ghcr.io/forge0x/lightning-server:0.1.1
     restart: on-failure
     environment:
       NODE_ENV: production
