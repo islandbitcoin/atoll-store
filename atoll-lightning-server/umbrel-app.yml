@@ -4,7 +4,7 @@ name: Lightning Server
 tagline: Self-hosted Lightning Address server with Nostr zap receipts and notifications
 icon: https://raw.githubusercontent.com/islandbitcoin/atoll-store/main/atoll-lightning-server/icon.svg
 category: bitcoin
-version: "0.1.0"
+version: "0.2.2"
 port: 3000
 description: >-
   Lightning Server enables you to receive Lightning Address payments at
@@ -22,9 +22,8 @@ description: >-
   connect it to your Umbrel Lightning Node, and set optional notification
   credentials.
 releaseNotes: >-
-  Initial Atoll Umbrel release. Lightning Server 0.1.0 with web dashboard,
-  health endpoint, and Dockerfile. Based on dplusplus1024/lightning-server
-  (Apache-2.0).
+  Fixes Lightning invoice generation with self-hosted LND, settings
+  persistence, public web UI routing, and the compact configuration dashboard.
 developer: dplusplus1024
 website: https://github.com/dplusplus1024/lightning-server
 dependencies:
