@@ -1,4 +1,4 @@
-# Island Bitcoin — Umbrel community app store
+# Island Bitcoin: Umbrel community app store
 
 A single Umbrel community app store (`id: atoll`) hosting all of Island Bitcoin's apps.
 
